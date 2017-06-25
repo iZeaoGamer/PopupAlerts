@@ -1,4 +1,4 @@
-name: PopupAlerts
+name: VMPopup
 main: PopupAlerts\Main
 version: "1.7"
 api: [3.0.0-ALPHA6]
