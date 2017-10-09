@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener {
 	/**
 	 * Translate Minecraft colors
 	 *
-	 * @param char $symbol Color symbol
+	 * @param string $symbol Color symbol
 	 * @param string $message The message to be translated
 	 *
 	 * @return string The translated message
@@ -81,20 +81,19 @@ class Main extends PluginBase implements Listener {
 	}
 	
     public function onEnable(){
-    	$this->logger = Server::getInstance()->getLogger();
     	if($this->getServer()->getPluginManager()->getPlugin("CustomAlerts")){
     		if(CustomAlerts::getAPI()->getAPIVersion() == "1.2"){
     			@mkdir($this->getDataFolder());
     			$this->saveDefaultConfig();
 				$this->getServer()->getPluginManager()->registerEvents($this, $this);
-    			$this->logger->info($this->translateColors("&", Main::PREFIX . "&ePopupAlerts &9v" . Main::VERSION . " &adeveloped by&9 " . Main::PRODUCER));
-    			$this->logger->info($this->translateColors("&", Main::PREFIX . "&eWebsite &9" . Main::MAIN_WEBSITE));
+    			$this->getLogger()->info($this->translateColors("&", Main::PREFIX . "&ePopupAlerts &9v" . Main::VERSION . " &adeveloped by&9 " . Main::PRODUCER));
+    			$this->getLogger()->info($this->translateColors("&", Main::PREFIX . "&eWebsite &9" . Main::MAIN_WEBSITE));
     		}else{
-    			$this->logger->error($this->translateColors("&", Main::PREFIX . "&cPlease update CustomAlerts to API 1.2. Plugin disabled"));
+    			$this->getLogger()->error($this->translateColors("&", Main::PREFIX . "&cPlease update CustomAlerts to API 1.2. Plugin disabled"));
     			$this->getServer()->getPluginManager()->disablePlugin($this);
     		}
     	}else{
-    		$this->logger->error($this->translateColors("&", Main::PREFIX . "&cYou need to install CustomAlerts (API 1.2). Plugin disabled"));
+    		$this->getLogger()->error($this->translateColors("&", Main::PREFIX . "&cYou need to install CustomAlerts (API 1.2). Plugin disabled"));
     	}
     }
     
@@ -148,4 +147,3 @@ class Main extends PluginBase implements Listener {
     	}
     }
 }
-?>

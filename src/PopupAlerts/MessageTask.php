@@ -14,7 +14,12 @@ namespace PopupAlerts;
 use pocketmine\scheduler\PluginTask;
 
 class MessageTask extends PluginTask {
-	
+
+    private $plugin;
+    private $message;
+    private $duration;
+    private $current;
+
     public function __construct(Main $plugin, $message, $duration){
     	parent::__construct($plugin);
         $this->plugin = $plugin;
@@ -23,7 +28,7 @@ class MessageTask extends PluginTask {
         $this->current = 0;
     }
     
-    public function onRun($tick){
+    public function onRun(int $tick){
     	$this->plugin = $this->getOwner();
     	if($this->current <= $this->duration){
     		foreach($this->plugin->getServer()->getOnlinePlayers() as $players){
@@ -35,4 +40,3 @@ class MessageTask extends PluginTask {
     	$this->current += 1;
     }
 }
-?>
