@@ -82,14 +82,14 @@ class Main extends PluginBase implements Listener{
 
 	public function onEnable(){
 		if($this->getServer()->getPluginManager()->getPlugin("CustomAlerts")){
-			if(CustomAlerts::getAPI()->getAPIVersion() == "1.2"){
+			if(CustomAlerts::getAPI()->getAPIVersion() == "3.0.0-ALPHA10"){
 				@mkdir($this->getDataFolder());
 				$this->saveDefaultConfig();
 				$this->getServer()->getPluginManager()->registerEvents($this, $this);
 				$this->getLogger()->info($this->translateColors("&", Main::PREFIX . "&ePopupAlerts &9v" . Main::VERSION . " &adeveloped by&9 " . Main::PRODUCER));
 				$this->getLogger()->info($this->translateColors("&", Main::PREFIX . "&eWebsite &9" . Main::MAIN_WEBSITE));
 			}else{
-				$this->getLogger()->error($this->translateColors("&", Main::PREFIX . "&cPlease update CustomAlerts to API 1.2. Plugin disabled"));
+				$this->getLogger()->error($this->translateColors("&", Main::PREFIX . "&cPlease update CustomAlerts to API 3.0.0-ALPHA10 Plugin disabled"));
 				$this->getServer()->getPluginManager()->disablePlugin($this);
 			}
 		}else{
