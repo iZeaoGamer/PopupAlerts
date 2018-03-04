@@ -33,7 +33,7 @@ class Main extends PluginBase implements Listener{
 	const PRODUCER = "EvolSoft";
 
 	/** @var string VERSION Plugin version */
-	const VERSION = "1.3";
+	const VERSION = "1.4.1-2";
 
 	/** @var string MAIN_WEBSITE Plugin producer website */
 	const MAIN_WEBSITE = "http://www.evolsoft.tk";
